@@ -32,3 +32,31 @@ from sklearn.metrics import accuracy_score
 accuracy = accuracy_score(y_test, predictions)
 accuracy
 data.head()
+#USING Decison Tree for better performance
+from sklearn.tree import DecisionTreeClassifier
+model = DecisionTreeClassifier()
+model.fit(X_train, y_train)
+pred = model.predict(X_test)
+from sklearn.metrics import accuracy_score
+
+accuracy = accuracy_score(y_test, pred)
+
+print(accuracy)
+from sklearn.tree import plot_tree
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(12,8))
+plot_tree(model, filled=True)
+plt.show()
+from sklearn.tree import DecisionTreeClassifier
+
+model = DecisionTreeClassifier(max_depth=5)
+
+model.fit(X_train, y_train)
+
+pred = model.predict(X_test)
+from sklearn.metrics import accuracy_score
+
+accuracy = accuracy_score(y_test, pred)
+
+print(accuracy)
